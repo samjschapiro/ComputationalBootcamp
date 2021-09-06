@@ -45,5 +45,44 @@ print(find_top_collatz_conjecture(2, 20))
 
 # problem 3
 
-def fibonacci_resursively(n):
-    print(1)
+def fibonacci_while(num):
+    iterations = 0
+    n = 0
+    n_minus_2 = 1
+    n_minus_1 = 1
+    while (iterations < (num-2)):
+        n = n_minus_2 + n_minus_1 
+        n_minus_2 = n_minus_1 
+        n_minus_1 = n 
+        iterations += 1
+    print(n)
+
+def fibonacci_recursive(n):
+   if n <= 1:
+       return n
+   return(fibonacci_recursive (n-2)+fibonacci_recursive(n-1))
+
+
+fibonacci_while(7)
+
+print(fibonacci_recursive(7))
+
+# problem 4 - function of form Ax^n + B
+
+def simpsons_rule(a, b, function_A, function_A_degree, function_B): 
+    function_of_a = function_A * (a ** function_A_degree) + function_B
+    function_of_ab_over2 = function_A * ( ( (a + b) / 2) ** function_A_degree) + function_B
+    function_of_b = function_A * (b ** function_A_degree) + function_B
+    return (b-a)/6.0 * (function_of_a + 4 * function_of_ab_over2 + function_of_b)
+
+print(simpsons_rule(1, 3, 3, 2, 1)) # integral of 3x^2 + 1 from 1 to 3
+
+# problem 5 
+
+def efficient_modulo(a, n, m):
+    if (n % 2 == 0):
+        return ((a ** n) ** 2) % m
+    elif (n % 2 != 0):
+        return (a * ((a ** n) ** 2)) % m
+
+print(efficient_modulo(3, 4, 10))
