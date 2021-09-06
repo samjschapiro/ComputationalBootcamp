@@ -81,8 +81,8 @@ print(simpsons_rule(1, 3, 3, 2, 1)) # integral of 3x^2 + 1 from 1 to 3
 
 def efficient_modulo(a, n, m):
     if (n % 2 == 0):
-        return ((a ** n) ** 2) % m
+        return ((a ** (n/2)) ** 2) % m
     elif (n % 2 != 0):
-        return (a * ((a ** n) ** 2)) % m
+        return (a * ((a ** (n-1)) ** 2)) % m
 
 print(efficient_modulo(3, 4, 10))
