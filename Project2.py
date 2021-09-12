@@ -61,18 +61,28 @@ def primeNums(n):
 print(primeNums(100))
 
 # problem 4 - decomposed tree
-def flattenTree(t):
+def flattenTree(t, root):
     tree = []
     for n in range(0, len(t)):
         if (isinstance(t[n], int)):
             tree.append(t[n])
+            root.append(t[n])
         elif (isinstance(t[n], list)):
-            tree.append(flattenTree(t[n]))
-    return tree
+            tree.append(flattenTree(t[n], root))
+    return root
 
 T = [1, 2, [3, 4, 5], 6, [7, [8, 9], 10, [11, [12]], 13], 14]
-print(flattenTree(T))
+print(flattenTree(T, []))
 
 
-     
+# problem 5 - list to dictionary
+def listToDictionary(list):
+    dict = {}
+    for n in range(0, len(list)):
+        tuple = list[n]
+        dict.__setitem__(tuple[0], tuple[1])
+    return dict
 
+print(listToDictionary([ ("Bill", "Apr 1"), ("Ron", "Jun 6"), ("Kat", "May 12"), ("Eric", "Jun 6"), ("Que", "Feb 10") ]))
+
+# problem 6 - skipped; implementation already delineated in project summary
